@@ -1,0 +1,29 @@
+openapi: '3.0.2'
+info:
+  title: DigitalTownSquare (DTS)
+  version: '0.1'
+servers:
+  - url: https://landfall.digitaltownsquare.social/api
+paths:
+  /auth:
+    get:
+      responses:
+        '200':
+          description: OK
+  /auth/login:
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /auth/logout:
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /config:
+  /user:
+  /
