@@ -1,6 +1,9 @@
 from pydantic import BaseModel
 
 class ASObject (BaseModel):
+    """ 
+    https://www.w3.org/ns/activitystreams#Object
+    """
     id:str
     name:str
     type: str
@@ -31,6 +34,9 @@ class ASObject (BaseModel):
     url:str
     
 class ASLink (BaseModel):
+    """ 
+    https://www.w3.org/ns/activitystreams#Link
+    """
     id:str
     name:str
     type:str
@@ -42,36 +48,46 @@ class ASLink (BaseModel):
     width:str
     preview:str
     
-
 class ASActivity (ASObject):
-    pass 
-
+    """ 
+    https://www.w3.org/ns/activitystreams#Activity	
+    """
+    actor:str
+    instrument:str
+    object:ASObject
+    origin:str
+    result:str
+    target:str
+       
 class ASIntransitiveActivity(ASActivity):
-    pass 
+    """ 
+    https://www.w3.org/ns/activitystreams#IntransitiveActivity	
+    super.object property must not be used
+    """
 
 class ASCollection(ASObject):
-    pass
-
+    """ 
+    https://www.w3.org/ns/activitystreams#Collection	
+    """
+    current:str
+    first:str
+    items:str
+    last:str
+    totalItems:str
+   
 class ASOrderedCollection(ASCollection):
-    pass 
+    """ 
+    https://www.w3.org/ns/activitystreams#OrderedCollection
+    """
 
 class ASCollectionPage(ASCollection):
-    pass 
-
+    """ 
+    https://www.w3.org/ns/activitystreams#CollectionPage	
+    """
+    partOf:str
+    next: str
+    prev: str 
+    
 class ASOrderedCollectionPage(ASOrderedCollection,ASCollectionPage):
-    pass 
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
+    startIndex:str
+    
