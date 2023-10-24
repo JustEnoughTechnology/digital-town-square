@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Digital Town Square'
-copyright = '2023, Rob Wolfe'
+copyright = '2023, Just Enough Technology LLC'
 author = 'Rob Wolfe'
 release = '0.1'
 

@@ -3,13 +3,50 @@ info:
   title: DigitalTownSquare (DTS)
   version: '0.1'
 servers:
+  - url: https://localhost:21080/api
   - url: https://landfall.digitaltownsquare.social/api
+
+components:
+  schemas:
+    name:
+      type: object
+      properties:
+        property:
+          type: integer
+  responses:
+    name:
+      description: ''
+      content:
+        application/json:
+          schema: {}
+          
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://domain.test/api/oauth/dialog
+          tokenUrl: https://domain.test/api/oauth/token
+          scopes:
+            read: example read scope
+            write: example write scope
+    apiKey:
+      type: apiKey
+      name: api_key
+      in: query
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+
 paths:
   /auth:
     get:
       responses:
         '200':
           description: OK
+
   /auth/login:
     get:
       description: ''
@@ -24,4 +61,44 @@ paths:
       responses:
         '200':
           description: OK
-  
+  /docs:
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /actor/{actor_id}:
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200' :
+          description: OK
+  /actor/{actor_id}/like:
+    get:
+      description: 'get list of ALL likes for an actor. default Sorted from newest to oldest'
+      parameters: []
+      responses:
+        '200':
+          description: OK
+    post:
+      description: 'Have an actor "like" a shout or whisper'
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /actor/{actor_id}/shout:
+    post:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /actor/{actor_id}/whisper:
+    post:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: OK
