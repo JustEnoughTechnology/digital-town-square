@@ -68,34 +68,34 @@ paths:
       responses:
         '200':
           description: OK
-  /actor/{actor_id}:
+  /speaker/{speakerId}:
     get:
       description: ''
       parameters: []
       responses:
         '200' :
           description: OK
-  /actor/{actor_id}/like:
+  /speaker/{speakerId}/like:
     get:
-      description: 'get list of ALL likes for an actor. default Sorted from newest to oldest'
+      description: 'get list of ALL likes for an speaker. default Sorted from newest to oldest'
       parameters: []
       responses:
         '200':
           description: OK
     post:
-      description: 'Have an actor "like" a shout or whisper'
+      description: 'Have an speaker "like" a shout or whisper'
       parameters: []
       responses:
         '200':
           description: OK
-  /actor/{actor_id}/shout:
+  /speaker/{speakerId}/shout:
     post:
       description: ''
       parameters: []
       responses:
         '200':
           description: OK
-  /actor/{actor_id}/whisper:
+  /speaker/{speakerId}/whisper:
     post:
       description: ''
       parameters: []
