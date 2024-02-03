@@ -1,3 +1,6 @@
-fastapi
+fastapi[all]
 PyLD
 Sphinx
+uvicorn
+fastapi-utils
+django >= 5
